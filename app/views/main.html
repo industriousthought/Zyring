@@ -1,0 +1,12 @@
+<img class="img-responsive" width="100%" src="https://s3-us-west-2.amazonaws.com/zyring-public-image/logo.png" >
+    <div class="container">
+        Where do you want to rent an apartment?
+        <ul class="row">
+            <li class="col-md-2" ng-repeat="city in cities">
+                <img ng-src={{city.img}} >
+                <a href="/#/cities/{{city.name}}"> {{city.name}} </a>  looks nice!
+
+            </li>
+        </ul>
+    </div>
+
