@@ -5,5 +5,6 @@ app.factory('Apartments', [ '$resource',
             'listing': $resource('http://spidey.zyring.com/cities/:city')
         };
 
+    console.log(obj.listing);
         return obj;
 }]);

@@ -1,5 +1,18 @@
 <img class="img-responsive" width="100%" src="https://s3-us-west-2.amazonaws.com/zyring-public-image/logo.png" >
-    <div class="container">
+    <div class="container-fluid">
         <p> City: {{cityName}} </p>
+
+        <ul class="row">
+            <li class="col-sm-6 col-md-4 col-lg-3 col-xs-12  masonry-brick" ng-repeat="listing in filterdListings">
+                <a href="/#/cities/{{city.name}}"> 
+                    <img ng-src={{listing.thumbnail}} >
+                    <br/>
+                    {{listing.title}} 
+                    <br/>
+                    {{listing.street}}
+                </a>
+            </li>
+        </ul>
+        <pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
     </div>
 
