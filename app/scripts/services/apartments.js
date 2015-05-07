@@ -2,9 +2,9 @@
 app.factory('Apartments', [ '$resource',
     function($resource) {
         var obj = {
-            'listing': $resource('http://spidey.zyring.com/cities/:city')
+            'city': $resource('http://spidey.zyring.com/cities/:city'),
+            'apartment': $resource('http://spidey.zyring.com/apartments/:apartmentId')
         };
 
-    console.log(obj.listing);
         return obj;
 }]);
