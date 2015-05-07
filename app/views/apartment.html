@@ -2,6 +2,23 @@
     <div class="container-fluid">
         <p> City: {{cityName}} </p>
 
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+            <ui-gmap-markers
+                models="filterdListings"
+                coords="'self'"
+            >
+                <ui-gmap-windows show="show">
+                <div ng-non-bindable>
+                    <a href="/#/apartment/{{id}}">
+                        <img src={{thumbnail}}> <br/>
+                        {{title}}
+                    </a>
+
+                </div>
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+        <pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
         <ul class="row">
             <li class="col-sm-6 col-md-4 col-lg-3 col-xs-12  masonry-brick" ng-repeat="listing in filterdListings">
                 <a href="/#/cities/{{city.name}}"> 
@@ -13,6 +30,5 @@
                 </a>
             </li>
         </ul>
-        <pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
     </div>
 

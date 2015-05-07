@@ -13,7 +13,9 @@ angular
     'ngAnimate',
     'ngResource',
     'ngRoute',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'uiGmapgoogle-maps'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -29,7 +31,19 @@ angular
         templateUrl: 'views/apartment.html',
         controller: 'ApartmentCtrl'
       })
+      .when('/apartment/:apartmentId', {
+        templateUrl: 'views/singleApartment.html',
+        controller: 'singleApartmentCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .config(function (uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyAn4dP7cpbQ6YRDo64k8ZIYUot3d_r64wg',
+      v: '3.17',
+      libraries: 'weather, goemetry, visualization'
+    });
   });
+

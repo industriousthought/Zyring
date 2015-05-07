@@ -9,8 +9,10 @@
  */
 angular.module('zyringApp')
 .controller('ApartmentCtrl', ['$scope', '$routeParams', 'Apartments', function ($scope, $routeParams, apartments) {
+    $scope.map = {center: {latitude: 47.6, longitude: -122}, zoom: 10};
     $scope.cityName = $routeParams.cityName;
-    $scope.listings = apartments.listing.query({city: $scope.cityName});
+    $scope.listings = apartments.city.query({city: $scope.cityName});
+    console.log($scope.listings);
     $scope.changePage = function() {
 
     };
